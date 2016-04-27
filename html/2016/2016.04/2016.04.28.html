@@ -10,19 +10,28 @@
 (function($) {
 	
 	function car01(){
-		this.color = "Yellow";
 		this.model = "Santos";
 		this.owner = "Me";
 	}
 	
-	console.log(new car01());
-	console.log(new car01().color);
+	var car = new car01();
 	
-	car01.prototype.color = function(){
+	car.color = function(){
+		console.log("I am Yellow");
+	}
+	
+	car.prototype.color = function(){
 		console.log("I am Red");
 	}
 	
-	console.log(new car01().color);
+	var test = new car(); 
+	console.log(test.color);
+// 	console.log(test.color());
+	
+	
+	
+	console.log(car.color);
+	console.log(car.color());
 	
 	
 })(jQuery);;
