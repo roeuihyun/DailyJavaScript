@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript Object Using</title>
+</head>
+<script type="text/javascript" src="../../../js/jquery-2.2.3.min.js"></script>
+<script type="text/javascript">
+
+(function($) {
+	
+	function car01(){
+		this.color = "Yellow";
+		this.model = "Santos";
+		this.owner = "Me";
+	}
+	
+	console.log(new car01());
+	console.log(new car01().color);
+	
+	car01.prototype.color = function(){
+		console.log("I am Red");
+	}
+	
+	console.log(new car01().color);
+	
+	
+})(jQuery);;
+</script>
+<body>
+
+</body>
+</html>
