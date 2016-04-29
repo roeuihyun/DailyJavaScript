@@ -6,35 +6,20 @@
 </head>
 <script type="text/javascript" src="../../../js/jquery-2.2.3.min.js"></script>
 <script type="text/javascript">
+var car = function(){
+	this.model = "Santos";
+	this.owner = "Me";
+}
 
-(function($) {
-	
-	function car01(){
-		this.model = "Santos";
-		this.owner = "Me";
-	}
-	
-	var car = new car01();
-	
-	car.color = function(){
-		console.log("I am Yellow");
-	}
-	
-	car.prototype.color = function(){
-		console.log("I am Red");
-	}
-	
-	var test = new car(); 
-	console.log(test.color);
-// 	console.log(test.color());
-	
-	
-	
-	console.log(car.color);
-	console.log(car.color());
-	
-	
-})(jQuery);;
+car.color = function(){
+	console.log("I am Yellow");
+}
+
+car.prototype.color = function(){
+	console.log("I am Red");
+}
+
+
 </script>
 <body>
 
