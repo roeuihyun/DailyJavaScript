@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript Object Using</title>
+</head>
+<script type="text/javascript" src="../../../js/jquery-2.2.3.min.js"></script>
+<script type="text/javascript">
+var car = function(){};
+
+car.instance = null;
+
+car.prototype.getInstance = function(){
+	if( car.instance == null || car.instance == undefined){
+		car.instance = new car();
+	}
+	return car.instance;
+}
+
+var car01 = new car();
+var car02 = new car();
+
+var instance01 = new car().getInstance();
+var instance02 = new car().getInstance();
+	
+	
+//(function($) {
+
+
+// 		this.model = "Santos";
+// 		this.owner = "Me";
+	
+// 	car.color = function(){
+// 		console.log("I am Yellow");
+// 	}
+	
+// 	car.prototype.color = function(){
+// 		console.log("I am Red");
+// 	}
+// 	var instance= this;
+
+// 	car.prototype.instance = function(){
+		
+// 		if(instance == undefined){
+// 			instance = new instance();
+// 		}
+		
+// 		return new instance();
+// 	}
+	
+// })(jQuery);;
+
+</script>
+<body>
+
+</body>
+</html>
