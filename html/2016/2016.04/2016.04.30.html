@@ -19,14 +19,46 @@ car.prototype.getInstance = function(){
 
 var car01 = new car();
 var car02 = new car();
+console.log(car01 == car02);
 
 var instance01 = new car().getInstance();
 var instance02 = new car().getInstance();
+console.log(instance01 == instance02);	
 	
+(function($) {
+
+	var truck = function(){};
 	
-//(function($) {
+	truck.instance = null;
+	
+	truck.prototype.getInstance = function(){
+		if( truck.instance == null || truck.instance == undefined){
+			truck.instance = new truck();
+		}
+		return truck.instance;
+	}
+	
+// 	$.truck = function(){
+// 		console.log('property');
+// 	};
+// 	$.fn.truck = function(){
+// 		console.log('prototype');
+// 	};
+	
+// 	console.log($.truck());
+	
+// 	$.fn.truck.getInstance = function(){
+// 		return $.truck().instance;
+// 	};
+	
+	var truck01 = new truck();
+	var truck02 = new truck();
+	console.log(truck01 == truck02);
 
-
+	var instance01 = new truck().getInstance();
+	var instance02 = new truck().getInstance();
+	console.log(instance01 == instance02);		
+	
 // 		this.model = "Santos";
 // 		this.owner = "Me";
 	
@@ -48,7 +80,7 @@ var instance02 = new car().getInstance();
 // 		return new instance();
 // 	}
 	
-// })(jQuery);;
+})(jQuery);;
 
 </script>
 <body>
