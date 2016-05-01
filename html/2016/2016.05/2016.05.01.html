@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript Object Using</title>
+</head>
+<script type="text/javascript" src="../../../js/jquery-2.2.3.min.js"></script>
+<script type="text/javascript">
+(function($) {
+
+	var sedan = function(){
+		this.wheel = 'hankook';
+		this.tire = 'michelin';
+		this.steel = 'posco';
+	};
+	
+	sedan.instance = null;
+	
+	sedan.prototype.singleton = function(){
+		if( sedan.instance == null || sedan.instance == undefined){
+			sedan.instance = new sedan();
+		}
+		return sedan.instance;
+	}
+	
+	$.instance = $.fn.instance= function(){
+		this.getSedanInstance = $.fn.instance.getSedanInstance = function(){
+			return new sedan().singleton();
+		}
+		return this;
+	};
+	
+})(jQuery);;
+
+var a = $.instance().getSedanInstance();
+var b = $.instance().getSedanInstance();
+
+var c = $.instance();
+var d = $.instance();
+
+var e = $.fn;
+var f = $.fn;
+
+console.log('property와 prototype이 동일한가를 검사');
+console.log($.instance.getSedanInstance() === $.instance().getSedanInstance);
+console.log($.instance().getSedanInstance() === $.instance().getSedanInstance);
+console.log($.instance.getSedanInstance() === $.instance().getSedanInstance());
+console.log('-----------------------------------------------------------------');
+
+console.log('각각 생성한 single instance가 동일한 값인가');
+console.log($.instance().getSedanInstance());
+console.log(a);
+console.log(a === b);
+console.log(a === $.instance().getSedanInstance());
+console.log(b === $.instance().getSedanInstance());
+console.log('-----------------------------------------------------------------');
+
+console.log('jquery 객체는 화면에 하나만 존재하는가?');
+console.log(e === f);
+console.log('-----------------------------------------------------------------');
+</script>
+<body>
+원하는 객체 표현법 <br>
+$.instance().getInstance();
+<div id='test'></div>
+</body>
+</html>

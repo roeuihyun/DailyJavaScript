@@ -19,11 +19,9 @@ car.prototype.getInstance = function(){
 
 var car01 = new car();
 var car02 = new car();
-console.log(car01 == car02);
 
 var instance01 = new car().getInstance();
 var instance02 = new car().getInstance();
-console.log(instance01 == instance02);	
 	
 (function($) {
 
@@ -38,52 +36,51 @@ console.log(instance01 == instance02);
 		return truck.instance;
 	}
 	
-// 	$.truck = function(){
-// 		console.log('property');
-// 	};
-// 	$.fn.truck = function(){
-// 		console.log('prototype');
-// 	};
-	
-// 	console.log($.truck());
-	
-// 	$.fn.truck.getInstance = function(){
-// 		return $.truck().instance;
-// 	};
+	$.truck = function(){};
+	$.fn.truck = function(){};
 	
 	var truck01 = new truck();
 	var truck02 = new truck();
-	console.log(truck01 == truck02);
 
 	var instance01 = new truck().getInstance();
 	var instance02 = new truck().getInstance();
-	console.log(instance01 == instance02);		
-	
-// 		this.model = "Santos";
-// 		this.owner = "Me";
-	
-// 	car.color = function(){
-// 		console.log("I am Yellow");
-// 	}
-	
-// 	car.prototype.color = function(){
-// 		console.log("I am Red");
-// 	}
-// 	var instance= this;
-
-// 	car.prototype.instance = function(){
-		
-// 		if(instance == undefined){
-// 			instance = new instance();
-// 		}
-		
-// 		return new instance();
-// 	}
 	
 })(jQuery);;
 
+
+(function($) {
+
+	var sedan = function(){};
+	
+	sedan.instance = null;
+	
+	sedan.prototype.singleton = function(){
+		if( sedan.instance == null || sedan.instance == undefined){
+			sedan.instance = new sedan();
+		}
+		return sedan.instance;
+	}
+
+	
+// 	$.instance = $.fn.instance= function(){
+// 		this.getInstance = 'value';
+// 		return this;
+// 	};
+	
+	$.instance.getInstance = $.fn.sedan.getInstance = function(){
+		console.log(" i'am $.instance().getInstance() ");
+		return new sedan().singleton();
+	};
+	
+	
+})(jQuery);;
+
+console.log($.instance());
+console.log($.instance().getInstance());
 </script>
 <body>
-
+원하는 객체 표현법 <br>
+$.instance().getInstance();
+<div id='test'></div>
 </body>
 </html>
